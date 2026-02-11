@@ -34,7 +34,42 @@ Z kolei okazało się że ciężko znaleźć coś co opisywało by bardziej subi
 System podejmuje decyzje na podstawie dwóch kluczowych wskaźników wyekstrahowanych z kodu:
 
 ### 2.1. Złożoność Cyklomatyczna (Cyclomatic Complexity - CC)
+
+Złożoność Cyklomatyczna jest liczona dzięki bibliotece radon a konkretnie z modułu radon.compelxity i wbudowanej w niej funkcji `cc_visit`. 
+Polega na zliczeniu wszystkich
+niezależnych ścieżek które są w kodzie i rozpoczyna się od wartości bazowej `1`. <br><br>
+Dla każdego bloku kodu lub funkcji wartość bazowa jest  inkrementowana o `+1` jeśli zostanie odnaleziona element taki jak:<br>
+Instrukcje warunkowe: `if`, `elif`<br>
+Pętle: `for`, `while`<br>
+Obsługa wyjątków: `except`<br>
+Wyrażenia logiczne w warunkach: `and`, `or`<br>
+Instrukcje: `assert`, `with`
+
+Dla każdej funkcji mierzy w ten sposób jej złożoność a później wyciąga średnią dla całego pliku.
+Im wyższa jest złożoność cyklomatyczna tym trudniejszy jest kod w zrozumieniu i ciężej jest go testować.
+
+*Przykład:*
+````python
+def funkcja(x):             #Funkcja więc bazowo cc = 1       
+    if x > 0 and x < 100:   # mamy if = cc+1, mamy and cc+1 == cc = 3
+        for i in range(x):  # mamy for więc cc+1 == cc= 4
+            print(i)        #
+    return True             #
+````
+*Przykład ten ilustruje jak liczymy złożoność cyklometryczną dla przykładowej funkcji.*
+
+Zmienna cyklometryczna swoje uniwersum posiada w przedziale `[0,50]` gdzie:
+
+`[0,10]` - prosty kod łatwy do testowania<br>
+`[11,20]` - kod o umierkowanym stopniu złożoności trzeba zrobić solidne testy ale jak najbardziej jest to możliwe<br>
+`[21,50]` - trudny kod ciężko go testować<br>
+`[>50]` - możemy spokojnie założyć że taki kod jest nietestowalny<br>
+
+**Skala pomiarowa** jest ilorazowa i absolutna a wartości są liczbami naturalnymi. 
+Istnieje też 0 które wskazuje że np. sprawdzamy obszar w którym nie deklarujemy żadnej funkcji ani elementów testowanych. 
+
 ### 2.2. Gęstość Węzłów AST (AST Node Density)
+
 
 Zmienna wejściowa **AST Density** opisuje, jak bardzo „zagęszczony” jest kod źródłowy pod względem swojej struktury składniowej.
 W praktyce oznacza to, ile elementów drzewa składniowego abstrakcyjnego (Abstract Syntax Tree, AST) przypada średnio na jedną linię kodu. 
@@ -46,6 +81,14 @@ Wartość AST Density obliczana jest jako stosunek liczby węzłów AST do liczb
 
 W kontekście implementacyjnym metryka AST Density przyjmuje jako wejście kod źródłowy w postaci tekstowej, 
 natomiast jako wynik zwraca pojedynczą wartość liczbową określającą średnią liczbę węzłów AST przypadających na jedną linię kodu.
+
+Metryka stosuje wzór:
+$$AST Density = Liczba Węzłów AST / Logiczne Linie Kodu$$
+
+*Liczba Węzłów AST* - Liczymy wszystko co trzeba przetworzyć / wykonać tj. `zmienne`,`stałe`,`wywołania funkcji`, `definicje argumentów`, `operatory logiczne`.
+
+*Logiczne Linie Kodu* - Jest to liczba lini kodu który się wykonał, ignorowane są komentarze, puste linie i docstringi.
+
 
 #### Przykład obliczeń
 Jeżeli analizowany fragment kodu składa się z 15 linii i podczas parsowania wygenerowanych zostaje 120 węzłów AST, to wartość gęstości AST wynosi:
