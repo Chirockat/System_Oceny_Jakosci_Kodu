@@ -161,23 +161,29 @@ Do modelowania niepewności wykorzystano funkcje trapezoidalne z określonym *Up
 **Funkcje przynależności AST Density**
 
 Low
+
 <img src="assets/density_low.PNG" width="500" alt="density_low">
 
 Optimal
+
 <img src="assets/density_optimal.PNG" width="500" alt="density_optimal">
 
 High
+
 <img src="assets/density_high.PNG" width="500" alt="density_high">
 
 **Funkcje przynależności Cyclomatic Complexity**
 
 Low
+
 <img src="assets/cc_low.PNG" width="500" alt="cc_low">
 
 Medium
+
 <img src="assets/cc_medium.PNG" width="500" alt="cc_medium">
 
 High
+
 <img src="assets/cc_high.PNG" width="500" alt="cc_high">
 
 
@@ -211,7 +217,31 @@ Projekt zrealizowano w języku **Python 3.x**.
 * Python 3.8+
 * Zainstalowane pakiety z `requirements.txt`
 
+### Uruchamianie aplikacji GUI
+* Uruchom plik `app_gui.py`
+* Podaj mu plik .py metodą Drag and Drop
+* Pojawią się wartości AST Density i CC, a także zmiennej wyjściowej w skali 0 - 100
+
+
+### Uruchamianie sterownika
+* Otwórz kod `app_v2.py`
+* Możesz ręcznie wpisać swoje wartości, bazując na przykładach zaczynających się w linijce 115
+* Uruchom kod
+
 ## 7. Przykłady Działania i Wyniki
+
+Przyklad dzialania GUI
+
+<img src="assets/gui_example.PNG" width="500" alt="Przyklad dzialania GUI">
+
+Przykładowe wyniki kontrolera
+
+<img src="assets/controller_example.PNG" width="500" alt="Przyklad dzialania GUI">
+
+Wykres 3D zmiennej wyjściowej
+
+<img src="assets/3D_plot.PNG" width="500" alt="Przyklad dzialania GUI">
+
 
 ## 8. Wnioski i Możliwy Rozwój
 
