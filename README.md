@@ -158,6 +158,29 @@ Implementacja została zrealizowana w języku Python przy użyciu biblioteki `py
 ### Funkcje Przynależności (Membership Functions)
 Do modelowania niepewności wykorzystano funkcje trapezoidalne z określonym *Upper Membership Function (UMF)* i *Lower Membership Function (LMF)*.
 
+**Funkcje przynależności AST Density**
+
+Low
+<img src="assets/density_low.PNG" width="500" alt="density_low">
+
+Optimal
+<img src="assets/density_optimal.PNG" width="500" alt="density_optimal">
+
+High
+<img src="assets/density_high.PNG" width="500" alt="density_high">
+
+**Funkcje przynależności Cyclomatic Complexity**
+
+Low
+<img src="assets/cc_low.PNG" width="500" alt="cc_low">
+
+Medium
+<img src="assets/cc_medium.PNG" width="500" alt="cc_medium">
+
+High
+<img src="assets/cc_high.PNG" width="500" alt="cc_high">
+
+
 ## 4. Baza Reguł i Wnioskowanie (TSK)
 
 Macierz reguł ($3 \times 3$) definiuje funkcję wyjścia (Quality Score) w zależności od kombinacji wejść.
