@@ -98,7 +98,7 @@ AST Density = 120 / 15 = 8.0
 Oznacza to, że każda linia kodu zawiera średnio osiem elementów strukturalnych drzewa składniowego.
 
 #### Zakres uniwersum
-Zakres wartości dla zmiennej AST Density został ustalony na przedział **0–40 węzłów AST na linię kodu**. 
+Zakres wartości dla zmiennej **AST Density** został ustalony na przedział **0–40 węzłów AST na linię kodu**. 
 Dolna granica odpowiada bardzo prostym lub trywialnym fragmentom kodu, natomiast górna granica została przyjęta jako świadome ograniczenie projektowe,
 pozwalające objąć również skrajnie zagęszczone fragmenty kodu.
 
@@ -106,7 +106,7 @@ Zakres ten jest wystarczająco szeroki, aby uwzględnić nietypowe przypadki (np
 a jednocześnie umożliwia stabilne zdefiniowanie zbiorów lingwistycznych oraz funkcji przynależności w systemie rozmytym.
 
 #### Zakres optymalny
-Zakres wartości uznawany za optymalny dla zmiennej **AST Density** został przyjęty na podstawie analizy przykładowych plików testowych wykonanej przy użyciu skryptu `ast_test.py`. 
+Zakres wartości uznawany za optymalny dla zmiennej **AST Density** został przyjęty na podstawie analizy przykładowych plików testowych z folderu `usefull_dev_code\example_codes`
 Na przykład dla pliku `knapsack_basic.py`, który stanowił wariant najbardziej zrównoważony pod względem czytelności i struktury, uzyskano wartość AST Density równą **7.61**. 
 
 Dla porównania, kod bardziej zbity (`knapsack_modern.py`) osiągnął wartość **13.89**, natomiast kod rozwlekły i mniej uporządkowany (`knapsack_messy.py`) wartość **6.03**. 
